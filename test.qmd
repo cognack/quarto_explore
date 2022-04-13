@@ -1,0 +1,41 @@
+---
+title: "Quarto Test"
+date: Sys.Date()
+execution:
+  warning: false
+  message: false
+format:
+  html:
+    theme: default
+    toc: true
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+
+# uses the hash operator plus | operator
+# can also set global options up top
+library(tidyverse)
+```
+Test with `mtcars` dataset
+
+```{r}
+#| label: fig-car_miles
+#| fig-cap: "car gas mileage"
+ggplot(data = mtcars, aes(x = wt, y = mpg)) +
+  geom_point()
+```
+This is an awesome graph @fig-car_miles
+
+```{python}
+#| label: fig-penguins
+#| fig-cap: "Penguins species pairplots"
+import seaborn as sns
+
+df = sns.load_dataset("penguins")
+
+sns.pairplot(df, hue = "species")
+```
+Super awesome penguins graph @fig-penguins
